@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-    baseURL: 'https://curnon-back-end.up.railway.app',
+    baseURL: 'http://103.173.154.237:9999',
     headers: {
         'Content-Type': 'application/json',
     },
