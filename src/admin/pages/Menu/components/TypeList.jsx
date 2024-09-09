@@ -19,16 +19,16 @@ const TypeList = ({ types, categoryId }) => {
   };
 
   const handleDeleteType = async (typeId) => {
-    await axios.delete(`http://localhost:5000/api/types/${typeId}`);
+    await axios.delete(`https://103.173.154.237:9999/api/types/${typeId}`);
     // Fetch types again or update the state to reflect the deletion
   };
 
   const handleTypeSubmit = async (values) => {
     const newType = { ...values, categoryId };
     if (selectedType) {
-      await axios.put(`http://localhost:5000/api/types/${selectedType._id}`, values);
+      await axios.put(`https://103.173.154.237:9999/api/types/${selectedType._id}`, values);
     } else {
-      await axios.post('http://localhost:5000/api/types', newType);
+      await axios.post('https://103.173.154.237:9999/api/types', newType);
     }
     setIsTypeModalVisible(false);
     // Fetch types again or update the state to reflect the changes

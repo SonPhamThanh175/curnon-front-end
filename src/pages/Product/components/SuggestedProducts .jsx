@@ -10,7 +10,7 @@ const SuggestedProducts = ({ productId }) => {
     const fetchSuggestedProducts = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/products/${productId}/suggestions`
+          `https://103.173.154.237:9999/api/products/${productId}/suggestions`
         , {
             headers: { 
                 Authorization: `Bearer ${accessToken}`,

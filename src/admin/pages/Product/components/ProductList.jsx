@@ -11,7 +11,7 @@ const ProductList = ({ onEdit, onDelete }) => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/products/get-all');
+      const response = await axios.get('https://103.173.154.237:9999/api/products/get-all');
       debugger
       setProducts(response.data.rows);
     } catch (error) {
@@ -27,7 +27,7 @@ const ProductList = ({ onEdit, onDelete }) => {
 
   const handleDelete = async (productId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/products/${productId}`);
+      await axios.delete(`https://103.173.154.237:9999/api/products/${productId}`);
       fetchProducts();
       if (onDelete) {
         onDelete();

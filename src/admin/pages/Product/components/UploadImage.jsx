@@ -60,7 +60,7 @@ const UploadImage = ({ onUploadSuccess, product, accessToken }) => {
     formData.append('files', file);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/uploads/product', formData, {
+      const response = await axios.post('https://103.173.154.237:9999/api/uploads/product', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${accessToken}`,

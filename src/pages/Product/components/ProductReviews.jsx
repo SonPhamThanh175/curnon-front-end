@@ -19,13 +19,13 @@ function ProductReviews({ onSubmitReview }) {
             if (productId) {
                 try {
                     const response = await axios.get(
-                        `http://localhost:5000/api/reviews/product/${productId}`,
+                        `https://103.173.154.237:9999/api/reviews/product/${productId}`,
                     );
                     setReviews(Array.isArray(response.data.reviews) ? response.data.reviews : []);
                     // Fetch tác giả sau khi đã có đánh giá
                     const authorPromises = response.data.reviews.map((review) =>
                         axios
-                            .get(`http://localhost:5000/api/auth/${review.userId}`)
+                            .get(`https://103.173.154.237:9999/api/auth/${review.userId}`)
                             .then((res) => ({ [review.userId]: res.data })),
                     );
                     const authorsData = await Promise.all(authorPromises);

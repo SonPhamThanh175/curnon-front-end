@@ -35,9 +35,9 @@ const ProductForm = ({ product, onClose, accessToken }) => {
         },
       };
       if (product) {
-        await axios.put(`http://localhost:5000/api/products/${product._id}`, productData, config);
+        await axios.put(`https://103.173.154.237:9999/api/products/${product._id}`, productData, config);
       } else {
-        await axios.post('http://localhost:5000/api/products', productData, config);
+        await axios.post('https://103.173.154.237:9999/api/products', productData, config);
       }
       onClose();
     } catch (error) {

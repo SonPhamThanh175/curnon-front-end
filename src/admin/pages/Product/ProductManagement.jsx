@@ -15,7 +15,7 @@ const ProductManagement = () => {
     }, []);
 
     const fetchProducts = async () => {
-        const response = await axios.get('http://localhost:5000/api/products/get-all');
+        const response = await axios.get('https://103.173.154.237:9999/api/products/get-all');
         setProducts(response.data);
     };
 
@@ -31,7 +31,7 @@ const ProductManagement = () => {
 
     const handleDelete = async (productId) => {
         try {
-          const response = await axios.delete(`http://localhost:5000/api/products/${productId}`, {
+          const response = await axios.delete(`https://103.173.154.237:9999/api/products/${productId}`, {
             headers: { 
               Authorization: `Bearer ${accessToken}`,
             },

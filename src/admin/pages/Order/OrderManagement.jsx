@@ -13,7 +13,7 @@ const OrderManagement = () => {
   const accessToken = localStorage.getItem('access_token');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/orders')
+    axios.get('https://103.173.154.237:9999/api/orders')
       .then(response => {
         setOrders(response.data);
       })
@@ -30,7 +30,7 @@ const OrderManagement = () => {
   const handleOk = () => {
     if (selectedOrder) {
       axios.put(
-        `http://localhost:5000/api/orders/${selectedOrder._id}/shipping-status`,
+        `https://103.173.154.237:9999/api/orders/${selectedOrder._id}/shipping-status`,
         {
           shippingStatus: newShippingStatus
         },

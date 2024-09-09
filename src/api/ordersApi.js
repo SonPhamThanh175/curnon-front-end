@@ -23,7 +23,7 @@ const orderApi = {
         return axiosClient.put(url, { payload });
     },
       getOrderHistory(userId){
-        const url =`http://localhost:5000/api/orders/${userId}/user`
+        const url =`https://103.173.154.237:9999/api/orders/${userId}/user`
         return axiosClient.get(url);
       }
 }

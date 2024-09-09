@@ -82,7 +82,7 @@ function DetailPage() {
 
     const handleAddReview = async (newReview) => {
         try {
-            const { data } = await axios.post('http://localhost:5000/api/reviews', {
+            const { data } = await axios.post('https://103.173.154.237:9999/api/reviews', {
                 ...newReview,
                 userId,
                 productId,

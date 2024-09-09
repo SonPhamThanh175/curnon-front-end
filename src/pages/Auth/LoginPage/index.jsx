@@ -84,10 +84,10 @@ export const LoginPage = () => {
     };
 
     const HandleLoginWithFacebook = () => {
-        window.location.href = "http://localhost:5000/api/auth/facebook/login";
+        window.location.href = "https://103.173.154.237:9999/api/auth/facebook/login";
     };
     const HandleLoginWithGoogle = () => {
-        window.location.href = "http://localhost:5000/api/auth/google/login";
+        window.location.href = "https://103.173.154.237:9999/api/auth/google/login";
     };
 
     return (

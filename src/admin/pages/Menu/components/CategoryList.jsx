@@ -20,16 +20,16 @@ const CategoryList = ({ categories, menuId }) => {
   };
 
   const handleDeleteCategory = async (categoryId) => {
-    await axios.delete(`http://localhost:5000/api/categories/${categoryId}`);
+    await axios.delete(`https://103.173.154.237:9999/api/categories/${categoryId}`);
     // Fetch categories again or update the state to reflect the deletion
   };
 
   const handleCategorySubmit = async (values) => {
     const newCategory = { ...values, menuId };
     if (selectedCategory) {
-      await axios.put(`http://localhost:5000/api/categories/${selectedCategory._id}`, values);
+      await axios.put(`https://103.173.154.237:9999/api/categories/${selectedCategory._id}`, values);
     } else {
-      await axios.post('http://localhost:5000/api/categories', newCategory);
+      await axios.post('https://103.173.154.237:9999/api/categories', newCategory);
     }
     setIsCategoryModalVisible(false);
     // Fetch categories again or update the state to reflect the changes

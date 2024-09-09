@@ -28,7 +28,7 @@ const MenuManagement = () => {
     useEffect(() => {
         const fetchMenus = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/menus');
+                const response = await axios.get('https://103.173.154.237:9999/api/menus');
                 setMenus(response.data);
             } catch (error) {
                 message.error('Failed to fetch menus');
@@ -43,7 +43,7 @@ const MenuManagement = () => {
             const fetchCategories = async () => {
                 setLoading(true);
                 try {
-                    const response = await axios.get('http://localhost:5000/api/categories');
+                    const response = await axios.get('https://103.173.154.237:9999/api/categories');
                     const filteredCategories = response.data.filter(
                         (category) => category.menuId === selectedMenu,
                     );
@@ -63,7 +63,7 @@ const MenuManagement = () => {
         if (selectedCategory) {
             const fetchTypes = async () => {
                 try {
-                    const response = await axios.get('http://localhost:5000/api/types');
+                    const response = await axios.get('https://103.173.154.237:9999/api/types');
                     const filteredTypes = response.data.filter(
                         (type) => type.categoryId === selectedCategory,
                     );
@@ -85,7 +85,7 @@ const MenuManagement = () => {
         try {
             if (editingMenu) {
                 // Edit
-                await axios.put(`http://localhost:5000/api/menus/${editingMenu._id}`, payload, {
+                await axios.put(`https://103.173.154.237:9999/api/menus/${editingMenu._id}`, payload, {
                     headers: { 
                         Authorization: `Bearer ${accessToken}`,
                     },
@@ -93,7 +93,7 @@ const MenuManagement = () => {
                 message.success('Menu updated successfully');
             } else {
                 // Add
-                await axios.post('http://localhost:5000/api/menus', payload, {
+                await axios.post('https://103.173.154.237:9999/api/menus', payload, {
                     headers: { 
                         Authorization: `Bearer ${accessToken}`,
                     },
@@ -104,7 +104,7 @@ const MenuManagement = () => {
             menuForm.resetFields();
             setEditingMenu(null);
             // Refresh menus list
-            const response = await axios.get('http://localhost:5000/api/menus');
+            const response = await axios.get('https://103.173.154.237:9999/api/menus');
             setMenus(response.data);
         } catch (error) {
             message.error('Failed to save menu');
@@ -122,7 +122,7 @@ const MenuManagement = () => {
 
             if (editingCategory) {
                 // Edit
-                await axios.put(`http://localhost:5000/api/categories/${editingCategory._id}`, payload, {
+                await axios.put(`https://103.173.154.237:9999/api/categories/${editingCategory._id}`, payload, {
                     headers: { 
                         Authorization: `Bearer ${accessToken}`,
                     },
@@ -130,7 +130,7 @@ const MenuManagement = () => {
                 message.success('Category updated successfully');
             } else {
                 // Add
-                await axios.post('http://localhost:5000/api/categories', payload, {
+                await axios.post('https://103.173.154.237:9999/api/categories', payload, {
                     headers: { 
                         Authorization: `Bearer ${accessToken}`,
                     },
@@ -143,7 +143,7 @@ const MenuManagement = () => {
             setEditingCategory(null);
             // Refresh categories list
             if (selectedMenu) {
-                const response = await axios.get('http://localhost:5000/api/categories');
+                const response = await axios.get('https://103.173.154.237:9999/api/categories');
                 const filteredCategories = response.data.filter(
                     (category) => category.menuId === selectedMenu,
                 );
@@ -165,7 +165,7 @@ const MenuManagement = () => {
     
             if (editingType) {
                 // Edit
-                await axios.put(`http://localhost:5000/api/types/${editingType._id}`, payload, {
+                await axios.put(`https://103.173.154.237:9999/api/types/${editingType._id}`, payload, {
                     headers: { 
                         Authorization: `Bearer ${accessToken}`,
                     },
@@ -176,7 +176,7 @@ const MenuManagement = () => {
                 if (!payload.categoryId) {
                     throw new Error('Category ID is required');
                 }
-                await axios.post('http://localhost:5000/api/types', payload, {
+                await axios.post('https://103.173.154.237:9999/api/types', payload, {
                     headers: { 
                         Authorization: `Bearer ${accessToken}`,
                     },
@@ -189,7 +189,7 @@ const MenuManagement = () => {
             setEditingType(null);
             // Refresh types list
             if (selectedCategory) {
-                const response = await axios.get('http://localhost:5000/api/types');
+                const response = await axios.get('https://103.173.154.237:9999/api/types');
                 setTypes(response.data.filter((type) => type.categoryId === selectedCategory));
             }
         } catch (error) {
@@ -237,14 +237,14 @@ const MenuManagement = () => {
     // Handle delete menu
     const handleMenuDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/menus/${id}`, {
+            await axios.delete(`https://103.173.154.237:9999/api/menus/${id}`, {
                 headers: { 
                     Authorization: `Bearer ${accessToken}`,
                 },
             });
             message.success('Menu deleted successfully');
             // Refresh menus list
-            const response = await axios.get('http://localhost:5000/api/menus');
+            const response = await axios.get('https://103.173.154.237:9999/api/menus');
             setMenus(response.data);
             setSelectedMenu(null);
             setCategories([]);
@@ -258,7 +258,7 @@ const MenuManagement = () => {
     // Handle delete category
     const handleCategoryDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/categories/${id}`, {
+            await axios.delete(`https://103.173.154.237:9999/api/categories/${id}`, {
                 headers: { 
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -266,7 +266,7 @@ const MenuManagement = () => {
             message.success('Category deleted successfully');
             // Refresh categories list
             if (selectedMenu) {
-                const response = await axios.get('http://localhost:5000/api/categories');
+                const response = await axios.get('https://103.173.154.237:9999/api/categories');
                 const filteredCategories = response.data.filter(
                     (category) => category.menuId === selectedMenu,
                 );
@@ -282,7 +282,7 @@ const MenuManagement = () => {
     // Handle delete type
     const handleTypeDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/types/${id}`, {
+            await axios.delete(`https://103.173.154.237:9999/api/types/${id}`, {
                 headers: { 
                     Authorization: `Bearer ${accessToken}`,
                 },
@@ -290,7 +290,7 @@ const MenuManagement = () => {
             message.success('Type deleted successfully');
             // Refresh types list
             if (selectedCategory) {
-                const response = await axios.get('http://localhost:5000/api/types');
+                const response = await axios.get('https://103.173.154.237:9999/api/types');
                 setTypes(response.data.filter((type) => type.categoryId === selectedCategory));
             }
         } catch (error) {

@@ -14,7 +14,7 @@ function SearchComponent() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/products/get-all');
+                const response = await axios.get('https://103.173.154.237:9999/api/products/get-all');
                 setProducts(response.data);
             } catch (error) {
                 console.error('Error fetching products:', error);
