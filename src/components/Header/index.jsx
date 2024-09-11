@@ -95,38 +95,29 @@ function Header(props) {
             </a>
 
             <nav className='wrapper__header__navbar'>
-                <a
-                    style={{ '--i': 1 }}
-                    href='/products'
-                    className='active'
-                >
-                    SẢN PHẨM
-                </a>
-                <a
-                    style={{ '--i': 2 }}
-                    href='http://localhost:3000/products?_limit=16&_page=1&_sort=asc&categoryId=66968d748675a1be4a653de2'
-                >
-                    NAM GIỚI
-                </a>
-                <a
-                    style={{ '--i': 3 }}
-                    href='http://localhost:3000/products?_limit=16&_page=1&_sort=asc&categoryId=66969dec8675a1be4a653e01'
-                >
-                    NỮ GIỚI
-                </a>
-                <a
-                    style={{ '--i': 4 }}
-                    href='/about'
-                >
-                    VỀ CHÚNG TÔI
-                </a>
-                <a
-                    style={{ '--i': 5 }}
-                    href='/blog'
-                >
-                    BLOG
-                </a>
-            </nav>
+    <a style={{ '--i': 1 }} href='/products' className='active'>
+        SẢN PHẨM
+    </a>
+    <a
+        style={{ '--i': 2 }}
+        href='/products?_limit=16&_page=1&_sort=asc&categoryId=66968d748675a1be4a653de2'
+    >
+        NAM GIỚI
+    </a>
+    <a
+        style={{ '--i': 3 }}
+        href='/products?_limit=16&_page=1&_sort=asc&categoryId=66969dec8675a1be4a653e01'
+    >
+        NỮ GIỚI
+    </a>
+    <a style={{ '--i': 4 }} href='/about'>
+        VỀ CHÚNG TÔI
+    </a>
+    <a style={{ '--i': 5 }} href='/blog'>
+        BLOG
+    </a>
+</nav>
+
 
             <div className='wrapper__header__social-media'>
                 {isLoggedIn ? (
